@@ -6,7 +6,7 @@ Code for the paper [EXIM: A Hybrid Explicit-Implicit Representation for Text-Gui
 
 **Authors**: Zhengzhe Liu, Jingyu Hu, Ka-Hei Hui, Xiaojuan Qi, Daniel Cohen-Or, Chi-Wing Fu
 
-<img src="figure1.jpg" width="900"/>
+<img src="figure1.png" width="900"/>
 
 
 ## Installation
@@ -76,7 +76,7 @@ cd manipulation
 python mani_diffedit.py
 ```
 
-Option1: Locate the interested region using Interactive System (Thanks to Ruihui Li, Ka-Hei Hui, and JIngyu Hu for developing this tool).
+Option2: Locate the interested region using Interactive System (Thanks to Ruihui Li, Ka-Hei Hui, and Jingyu Hu for developing this tool).
 
 
 First, run the UI-Interface
