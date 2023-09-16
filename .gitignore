@@ -1,0 +1,6 @@
+*.pth
+data/
+*.npy
+evaluation/
+*.so
+model/

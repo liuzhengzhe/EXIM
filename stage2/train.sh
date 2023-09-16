@@ -1,0 +1,1 @@
+python train_gan.py -std_dev 0.1 0.01 -res 128 -m ShapeNet128Vox -batch_size 4
