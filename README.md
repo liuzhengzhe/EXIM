@@ -16,6 +16,11 @@ conda env create -f environment.yaml
 conda activate EXIM
 cd stage 2
 python setup.py build_ext --inplace
+cd data_processing/libmesh/
+python setup.py build_ext --inplace
+cd ../libvoxelize/
+python setup.py build_ext --inplace
+cd ../..
 ```
 
 ## Data Preparation
@@ -32,10 +37,18 @@ unzip to "data/"
 
 ```
 cd stage1
-python test_generation.py
+python test_chair.py
 cd ../stage2
 sh test.sh
 ```
+
+
+* Table generation:
+cd stage1
+python test_table.py
+edit test:sh: -checkpoint ../data/model/table/checkpoint_epoch_200.tar
+stage2/models/data/voxelized_data_shapenet_test.py: uncomment Line 133
+stage2/generation_iterator.py: uncomment Line 28
 
 ##  Training
 

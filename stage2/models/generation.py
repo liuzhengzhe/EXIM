@@ -14,7 +14,7 @@ class Generator(object):
         self.device = device
         self.resolution = resolution
         self.resolution = resolution
-        self.checkpoint_path = 'experiments/iVoxels_dist-0.5_0.5_sigmas-0.1_0.01_v128_mShapeNet128Vox/checkpoints/' #os.path.dirname(__file__) + '/../experiments/{}/checkpoints/'.format( exp_name)
+        self.checkpoint_path = checkpoint #'../data/model/table/' #os.path.dirname(__file__) + '/../experiments/{}/checkpoints/'.format( exp_name)
         self.load_checkpoint(checkpoint)
         self.batch_points = batch_points
 
@@ -76,7 +76,7 @@ class Generator(object):
 
 
         inputs = data['inputs'].to(self.device)
-        inputs2 = data['inputs2'].to(self.device)
+        #inputs2 = data['inputs2'].to(self.device)
 
         logits_list = []
         color_list = [] 
@@ -141,7 +141,7 @@ class Generator(object):
 
         #print (vertices.shape, np.unique(np.array(vertices)), 'vertices')
 
-        vertex_colors = self.estimate_colors(np.array(vertices), inputs2,text,noise=noise)
+        vertex_colors = self.estimate_colors(np.array(vertices), inputs,text,noise=noise)
 
         
         
@@ -266,7 +266,7 @@ class Generator(object):
         return trimesh.Trimesh(vertices, triangles)
 
     def load_checkpoint(self, checkpoint):
-        if checkpoint is None:
+        '''if checkpoint is None:
             checkpoints = glob(self.checkpoint_path+'/*')
             if len(checkpoints) == 0:
                 print('No checkpoints found at {}'.format(self.checkpoint_path))
@@ -276,7 +276,9 @@ class Generator(object):
             checkpoints = np.sort(checkpoints)
             path = self.checkpoint_path + 'checkpoint_epoch_{}.tar'.format(checkpoints[-1])
         else:
-            path = self.checkpoint_path + 'checkpoint_epoch_{}.tar'.format(checkpoint)
+            path = self.checkpoint_path + 'checkpoint_epoch_{}.tar'.format(checkpoint)'''
+        
+        path = self.checkpoint_path
         print('Loaded checkpoint from: {}'.format(path))
         checkpoint = torch.load(path)
         print (checkpoint['model_state_dict'].keys())

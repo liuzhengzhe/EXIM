@@ -19,21 +19,14 @@ def gen_iterator(out_path, dataset, gen_p):
 
     if not os.path.exists(out_path):
         os.makedirs(out_path)
-    #print(out_path)
 
-
-    # can be run on multiple machines: dataset is shuffled and already generated objects are skipped.
     loader = dataset.get_loader(shuffle=True)
 
-    #data_tupels = []
+
     
-    dic=np.load('../data/official_chair_test.npy',allow_pickle=1)[()]
-    #dic=np.load('../blip_balance100.npy',allow_pickle=1)[()]  
-    #dic=np.load('../jingyudata/3dfront_test.npy',allow_pickle=1)[()]
- 
-    #dic=np.load('../blip_balance100.npy',allow_pickle=1)[()]
-    #print (dic.keys())
-    
+    #dic=np.load('../data/official_chair_test.npy',allow_pickle=1)[()]
+    dic=np.load('../data/official_table_test.npy',allow_pickle=1)[()]
+
     for i, data in tqdm(enumerate(loader)):
 
 
@@ -49,36 +42,21 @@ def gen_iterator(out_path, dataset, gen_p):
           continue
         texts=dic[name]
         
-        #texts=['red red chair ']
+        #texts=['red swivel chair ']
         
         
         print (i)
         for text in texts:
               if text[:15]==self_text[:15]:
-                  #try: #
-                  #text='A red swivel chair with black wheels.'
                           
                   noise=torch.randn(1,128,1,1,1).cuda()*1 #diversified generation: 10
                   mesh,vertices, triangles= gen.generate_mesh(data,text,noise=noise)
                   namefull=path.split('/')[-1]
                   name=path.split('/')[-1].split('_')[0]
                   
-                  
-                  #trimesh.exchange.export.export_mesh(mesh, 'mesh_new/'+name+'_'+text[:50].replace('/','')+'.obj')
-                  #print (text,'save')
-                  #trimesh.exchange.export.export_mesh(mesh, 'mani0520/'+name+'_'+text[:50].replace('/','')+'.obj')
-                  trimesh.exchange.export.export_mesh(mesh, 'mesh/'+name+self_text+text[:40].replace('/','')+str(i)+'.obj') #'mani2/'+name+'_'+text[:50].replace('/','')+'.obj')
-                  #mcubes.export_obj(vertices, triangles, 'mani_new/'+self_text+'.obj')
-                  #except:
-                  #pass
-      
-                  
-                  #data_tupels.append((logits,data, out_path))
-    
-      
-              #except Exception as err:
-              #    print('Error with {}: {}'.format(data['path'][0], traceback.format_exc()))
-        
+
+                  trimesh.exchange.export.export_mesh(mesh, 'mesh/'+name+self_text+text[:40].replace('/','')+str(i)+'.obj') 
+
           
 
 

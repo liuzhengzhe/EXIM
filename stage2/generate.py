@@ -20,7 +20,7 @@ parser.add_argument('-res' , default=32, type=int)
 parser.add_argument('-decoder_hidden_dim' , default=256, type=int)
 parser.add_argument('-mode' , default='test', type=str)
 parser.add_argument('-retrieval_res' , default=256, type=int)
-parser.add_argument('-checkpoint', type=int)
+parser.add_argument('-checkpoint', type=str)
 parser.add_argument('-batch_points', default=1000000, type=int)
 parser.add_argument('-m','--model' , default='LocNet', type=str)
 

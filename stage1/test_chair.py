@@ -58,7 +58,7 @@ def process_state_dict(network_state_dict):
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-12_15-20-17_Wavelet-Training-experiment'
 # testing_folder = r'E:\testing_folder\2022-05-13_01-53-53_Wavelet-Training-experiment' # Chair
 #testing_folder = 'debug/2022-11-07_12-26-09_Wavelet-Training-experiment/'
-testing_folder='../data/'
+testing_folder='../data/model/chair/'
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-05_15-30-07_Wavelet-Training-experiment' # Table
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-08_12-00-40_Wavelet-Training-experiment' # Table 2
 # testing_folder = r'E:\testing_folder\exp_17' # Table
@@ -118,7 +118,7 @@ respacing = [config.diffusion_step // 10]
 #noise_path = r'E:\proj51_debug\2022-05-17_12-42-13_Network-Marching-Cubes-Diffusion-Gen\229_265_noise.pt' #
 
 #
-use_high_level_network = 1
+'''use_high_level_network = 1
 
 if use_high_level_network:
     high_level_config_path = config_path #os.path.join(high_level_folder, 'config.py')
@@ -135,7 +135,7 @@ if use_high_level_network:
     high_level_network_path = '/mnt/sda/lzz/model_epoch_240.pth' #os.path.join(high_level_folder, f'model_epoch_{high_level_stage}_{high_level_epoch}.pth')
 
 else:
-    high_level_config = None
+    high_level_config = None'''
 
 def one_generation_process(args):
     model_path_clip = "openai/clip-vit-large-patch14"
@@ -199,7 +199,7 @@ def one_generation_process(args):
         network = network.to(device)
         network.eval()
 
-        if use_high_level_network:
+        '''if use_high_level_network:
             high_level_network = MyUNetModel(in_channels= 1,
                                 spatial_size= dwt_sparse_composer.shape_list[2][0],
                                 model_channels=high_level_config.unet_model_channels,
@@ -215,7 +215,7 @@ def one_generation_process(args):
             high_level_network = high_level_network.to(device)
             high_level_network.eval()
         else:
-            high_level_network = None
+            high_level_network = None'''
 
 
         betas = get_named_beta_schedule(config.diffusion_beta_schedule, config.diffusion_step,
@@ -253,7 +253,7 @@ def one_generation_process(args):
             #print ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
             continue
           print (key)'''
-          for text_str in dic[key][1:]:
+          for text_str in dic[key]:
            print (text_str,'start')
            
            text_str=' '.join(text_str.split(' ')[:20])
@@ -298,7 +298,7 @@ def one_generation_process(args):
             
             if need_gt:
                 voxels_pred = dwt_inverse_3d_lap((low_lap, highs_lap))
-                vertices, traingles = mcubes.marching_cubes(voxels_pred.detach().cpu().numpy()[0, 0], 0.0)
+                vertices, traingles = mcubes.marching_cubes(voxels_pred.detach().cpu().numpy()[0, 0], 0.0) 
                 vertices = (vertices.astype(np.float32) - 0.5) / config.resolution - 0.5
                 mcubes.export_off(vertices, traingles, os.path.join(folder_path, f'{testing_sample_index}_gt.off'))
 

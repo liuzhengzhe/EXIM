@@ -1,0 +1,8 @@
+# ninja log v5
+0	219	1698998792182716308	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libmcubes/marchingcubes.o	ce3d79593f5e771b
+1	763	1698998792722711722	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libmcubes/pywrapper.o	eff4af5236db459c
+0	1139	1698998793098708528	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libmcubes/mcubes.o	5f9ce059dd3cd5ff
+0	2809	1698998796282681476	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libmesh/triangle_hash.o	8425c7abb6e6709e
+0	3023	1698998799510654040	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libmise/mise.o	c6580cfad5497374
+0	3338	1698998803062623837	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libsimplify/simplify_mesh.o	bb4dcbd8304df9c2
+0	2138	1698998805802600531	/mnt/sda/lzz/EXIM/stage2/build/temp.linux-x86_64-3.9/im2mesh/utils/libvoxelize/voxelize.o	13bd3f22c1477bbb

@@ -58,7 +58,7 @@ def process_state_dict(network_state_dict):
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-12_15-20-17_Wavelet-Training-experiment'
 # testing_folder = r'E:\testing_folder\2022-05-13_01-53-53_Wavelet-Training-experiment' # Chair
 #testing_folder = 'debug/2022-11-07_12-26-09_Wavelet-Training-experiment/'
-testing_folder='../data/'
+testing_folder='../data/model/chair/'
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-05_15-30-07_Wavelet-Training-experiment' # Table
 # testing_folder = r'Y:\ImplicitWavelet\debug\2022-05-08_12-00-40_Wavelet-Training-experiment' # Table 2
 # testing_folder = r'E:\testing_folder\exp_17' # Table
@@ -68,13 +68,13 @@ testing_folder='../data/'
 
 data_len = 5421 # chair
 # data_len = 6807 # table
-# data_len = 1256 # cabinet
+# data_le4n = 1256 # cabinet
 # data_len = 3234 # airplane
 
 data_path = r'/home/edward/data/03001627_chair/03001627_vox256_img_train.txt'
 data_folder = r'Y:\sdf_samples_scaled_0.98\03001627'
 
-config_path = os.path.join(testing_folder, 'config.py')
+config_path =  'configs/config.py' #os.path.join(testing_folder, 'config.py')
 
 ## import config here
 spec = importlib.util.spec_from_file_location('*', config_path)
@@ -90,7 +90,7 @@ model_type = f"Wavelet-Decoding"
 # epoch = 500 # OLD CHAIR
 # epoch = 450 # CHAIR
 # epoch = 600 #225 #165 # chair 2
-epoch = 1500 # chair 3
+epoch = 1450 # chair 3
 # epoch = 620 # table
 # epoch = 5000
 # epoch = 4080 # airplane
@@ -300,13 +300,15 @@ def one_generation_process(args):
 
                 highs_samples = [torch.zeros(tuple([1, 1] + dwt_sparse_composer.shape_list[i]), device=device) for i in
                                  range(config.max_depth)]
+                np.save('feat_evaluation/'+text_str[:20].replace('/','')+'_'+str(m)+'low.npy',low_samples.detach().cpu().numpy())
 
-                if use_high_level_network:
+
+                '''if use_high_level_network:
                     upsampled_low = F.interpolate(low_samples, size=tuple(dwt_sparse_composer.shape_list[high_test_index]))
                     highs_samples[high_test_index] = network(upsampled_low)
                 #print (low_samples.shape)
 
-                np.save('feat/'+text_str+str(m)+'.npy',low_samples.detach().cpu().numpy())
+                #np.save('feat/'+text_str+str(m)+'.npy',low_samples.detach().cpu().numpy())
 
 
                 voxels_pred = dwt_inverse_3d_lap((low_samples, highs_samples))
@@ -314,7 +316,7 @@ def one_generation_process(args):
                 #np.save('output.npy',voxel_save[::4,::4,::4])
                 vertices, traingles = mcubes.marching_cubes(voxels_pred.detach().cpu().numpy()[0, 0, :, :, :], 0.0)
                 vertices = (vertices.astype(np.float32) - 0.5) / (config.resolution) - 0.5
-                mcubes.export_obj(vertices, traingles, os.path.join(folder_path, f'{m+start_index+extra_start}_{testing_sample_index}.obj'))
+                mcubes.export_obj(vertices, traingles, os.path.join('./', f'{m+start_index+extra_start}_{testing_sample_index}.obj'))
 
                 if use_high_level_network and save_no_high:
                     highs_samples[high_test_index] = torch.zeros_like(highs_samples[high_test_index]).to(device)
@@ -324,7 +326,7 @@ def one_generation_process(args):
                     mcubes.export_obj(vertices, traingles, os.path.join(folder_path,
                                                                         f'{m + start_index + extra_start}_{testing_sample_index}_no_highs.obj'))
 
-                print(f"Done {os.path.join(folder_path,f'{m+start_index+extra_start}_{testing_sample_index}.off')}!")
+                print(f"Done {os.path.join(folder_path,f'{m+start_index+extra_start}_{testing_sample_index}.off')}!")'''
 
 if __name__ == '__main__':
 
