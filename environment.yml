@@ -1,4 +1,4 @@
-name: exim
+name: EXIM
 channels:
   - pyg
   - pytorch

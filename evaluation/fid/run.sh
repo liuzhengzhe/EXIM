@@ -1,0 +1,1 @@
+python -m pytorch_fid gt pred_gttext
