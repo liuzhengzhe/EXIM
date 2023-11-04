@@ -26,7 +26,7 @@ cd ../..
 ## Data Preparation
 
 
-* Download our [data and models]()
+* Download our [models](https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ)
 
 unzip to "data/"
 
@@ -42,13 +42,14 @@ cd ../stage2
 sh test.sh
 ```
 
-
+<!---
 * Table generation:
 cd stage1
 python test_table.py
 edit test:sh: -checkpoint ../data/model/table/checkpoint_epoch_200.tar
 stage2/models/data/voxelized_data_shapenet_test.py: uncomment Line 133
 stage2/generation_iterator.py: uncomment Line 28
+--->
 
 ##  Training
 
@@ -76,8 +77,9 @@ sh train.sh
 
 ## Evaluation
 
-To evaluate the quantitative metrics, please download [Evaluation]().
-
+```
+cd evaluateion
+```
 
 ##  Manipulation
 
