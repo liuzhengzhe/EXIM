@@ -1,6 +1,6 @@
 # EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation
 ## SIGGRAPH Asia 2023 (Journal Track)
-## Project [page](https://liuzhengzhe.github.io/EXIM.github.io/)
+## [Project page](https://liuzhengzhe.github.io/EXIM.github.io/)
 
 Code for the paper [EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation].
 
