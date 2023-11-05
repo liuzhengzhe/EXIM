@@ -1,5 +1,5 @@
 *.pth
-data/
 *.npy
 *.so
-model/
+*.tar
+*.zip

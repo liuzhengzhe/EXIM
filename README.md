@@ -28,7 +28,7 @@ cd ../..
 
 * Download our [models](https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ)
 
-unzip to "data/"
+unzip to "EXIM/data/"
 
 
 
@@ -57,7 +57,7 @@ stage2/generation_iterator.py: uncomment Line 28
 
 Download the [train data](https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ).
 
-Put to data/
+Put to "EXIM/data/"
 
 ```
 cd stage1
@@ -68,6 +68,7 @@ python trainer_new.py
 
 * Download [Choy et. al. rendering data](https://s3.eu-central-1.amazonaws.com/avg-projects/differentiable_volumetric_rendering/data/ShapeNet.zip) and [IF-Net data](https://drive.google.com/drive/folders/1QGhDW335L7ra31uw5U-0V7hB-viA0JXr): 03001627.tar.gz
 
+Put to "EXIM/data/"
 
 ```
 cd stage2
