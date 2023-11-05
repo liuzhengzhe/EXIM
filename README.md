@@ -1,6 +1,5 @@
 # EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation
-## SIGGRAPH Asia 2023 (Journal Track)
-## [Project page](https://liuzhengzhe.github.io/EXIM.github.io/)
+## SIGGRAPH Asia 2023 & ACM TOG
 
 Code for the paper [EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation].
 
@@ -56,6 +55,10 @@ stage2/generation_iterator.py: uncomment Line 28
 
 (1)  Stage 1
 
+Download the [train data](https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ).
+
+Put to data/
+
 ```
 cd stage1
 python trainer_new.py
@@ -63,12 +66,8 @@ python trainer_new.py
 
 (2)  Stage 2
 
-* Download [Choy et. al. renderings](https://arxiv.org/abs/1604.00449)
+* Download [Choy et. al. rendering data](https://s3.eu-central-1.amazonaws.com/avg-projects/differentiable_volumetric_rendering/data/ShapeNet.zip) and [IF-Net data](https://drive.google.com/drive/folders/1QGhDW335L7ra31uw5U-0V7hB-viA0JXr): 03001627.tar.gz
 
-```
-cd data/DVR
-wget https://s3.eu-central-1.amazonaws.com/avg-projects/differentiable_volumetric_rendering/data/ShapeNet.zip
-```
 
 ```
 cd stage2
@@ -113,9 +112,7 @@ python mani_select.py
 
 ```
 
-
-
-To train the manipulation model, 
+To train the manipulation model:
 
 ```
 python seg.py
