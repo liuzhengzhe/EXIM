@@ -1,7 +1,7 @@
 # EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation
 ## SIGGRAPH Asia 2023 & ACM TOG
 ## [Project Page](https://liuzhengzhe.github.io/EXIM.github.io/)
-Code for the paper [EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation].
+Code for the paper [EXIM: A Hybrid Explicit-Implicit Representation for Text-Guided 3D Shape Generation](https://arxiv.org/pdf/2311.01714.pdf).
 
 
 **Authors**: Zhengzhe Liu, Jingyu Hu, Ka-Hei Hui, Xiaojuan Qi, Daniel Cohen-Or, Chi-Wing Fu

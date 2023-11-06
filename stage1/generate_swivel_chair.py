@@ -302,7 +302,7 @@ def one_generation_process(args):
                                  range(config.max_depth)]
                 np.save('feat_evaluation/'+text_str[:20].replace('/','')+'_'+str(m)+'low.npy',low_samples.detach().cpu().numpy())
 
-                '''if use_high_level_network:
+                if use_high_level_network:
                     upsampled_low = F.interpolate(low_samples, size=tuple(dwt_sparse_composer.shape_list[high_test_index]))
                     highs_samples[high_test_index] = network(upsampled_low)
                 #print (low_samples.shape)
@@ -325,7 +325,7 @@ def one_generation_process(args):
                     mcubes.export_obj(vertices, traingles, os.path.join(folder_path,
                                                                         f'{m + start_index + extra_start}_{testing_sample_index}_no_highs.obj'))
 
-                print(f"Done {os.path.join(folder_path,f'{m+start_index+extra_start}_{testing_sample_index}.off')}!")'''
+                print(f"Done {os.path.join(folder_path,f'{m+start_index+extra_start}_{testing_sample_index}.off')}!")
 
 if __name__ == '__main__':
 
