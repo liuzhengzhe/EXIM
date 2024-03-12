@@ -26,7 +26,7 @@ cd ../..
 ## Data Preparation
 
 
-* Download our [models](https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ) and [list of files](https://drive.google.com/file/d/1A6GrcDneGNGi6h2czy0tYz2F_BEPG5FE/view?usp=sharing).
+* Download our [models]([https://drive.google.com/drive/folders/1JD4LFgEN9i2a9eeUU74TeuKIIvX9ozRZ](https://drive.google.com/file/d/1bdM0IuLSXhQmnH2w69QnTxQY5VsP2eV9/view?usp=sharing) and [list of files](https://drive.google.com/file/d/1A6GrcDneGNGi6h2czy0tYz2F_BEPG5FE/view?usp=sharing).
 
 unzip to "EXIM/data/"
 
