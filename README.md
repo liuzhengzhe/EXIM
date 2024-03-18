@@ -79,7 +79,7 @@ sh train.sh
 ## Evaluation
 
 ```
-cd evaluateion
+cd evaluation
 ```
 
 ##  Manipulation
